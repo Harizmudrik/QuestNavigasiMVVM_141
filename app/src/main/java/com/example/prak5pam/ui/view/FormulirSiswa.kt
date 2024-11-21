@@ -50,6 +50,15 @@ fun FormulirView(
         modifier = modifier.fillMaxSize().padding(30.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ){
+        TextField(
+            value = nim,
+            onValueChange = { nim = it },
+            label = { Text("Nim") },
+            placeholder = { Text("isi nim anda")},
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+        )
+
 
     }
 }
