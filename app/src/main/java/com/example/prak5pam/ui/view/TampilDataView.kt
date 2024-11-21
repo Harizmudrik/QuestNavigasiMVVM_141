@@ -22,5 +22,19 @@ fun TampilDataView(
     uiState: DataSiswa,
     onBackButton: () -> Unit
 ){
-
+    Column (
+        modifier = modifier.fillMaxSize().
+        padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        DetailMhs("NIM", uiState.nim)
+        DetailMhs("Nama", uiState.nama)
+        DetailMhs("Jenis Kelamin", uiState.jenisKelamin)
+        DetailMhs("Email", uiState.email)
+        DetailMhs("Alamat", uiState.alamat)
+        DetailMhs("Nomor Telepon", uiState.noTelp)
+        Button(onClick = onBackButton) {
+            Text(text = "Kembali")
+        }
+    }
 }
