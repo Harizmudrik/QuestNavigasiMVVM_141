@@ -1,6 +1,5 @@
 package com.example.prak5pam.ui.view
 
-package com.example.prak5pam.ui.view
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
