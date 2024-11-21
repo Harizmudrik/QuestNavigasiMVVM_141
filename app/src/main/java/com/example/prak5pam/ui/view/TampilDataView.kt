@@ -38,3 +38,30 @@ fun TampilDataView(
         }
     }
 }
+
+@Composable
+fun DetailMhs(
+    para:String, argu:String
+) {
+    Column(
+        modifier = Modifier.padding(16.dp)
+    ){
+        Row (
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ){
+            Text(
+                text = para,
+                modifier = Modifier.weight(0.8f)
+            )
+            Text(
+                text= ":",
+                modifier = Modifier.weight(0.2f)
+            )
+            Text(
+                text = argu,
+                modifier = Modifier.weight(2f)
+            )
+        }
+    }
+}
