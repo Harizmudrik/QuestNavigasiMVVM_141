@@ -65,6 +65,25 @@ fun FormulirView(
             placeholder = { Text("isi nama anda")},
             modifier = Modifier.fillMaxWidth().padding(5.dp),
         )
+        Row (
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Start
+        ) {
+            listJK.forEach { SelectedGender ->
+                Row (
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    RadioButton(
+                        selected = gender == SelectedGender,
+                        onClick = {gender = SelectedGender}
+                    )
+                    Text(
+                        text = SelectedGender
+                    )
+                }
+            }
+        }
+
 
     }
 }
