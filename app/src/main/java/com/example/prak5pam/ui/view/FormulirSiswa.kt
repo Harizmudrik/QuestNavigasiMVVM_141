@@ -89,6 +89,23 @@ fun FormulirView(
                     modifier = Modifier.fillMaxWidth().padding(5.dp),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
                 )
+                TextField(
+                    value = alamat,
+                    onValueChange = { alamat = it },
+                    label = { Text("Alamat") },
+                    placeholder = { Text("isi Alamat anda")},
+                    modifier = Modifier.fillMaxWidth().padding(5.dp),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
+                )
+                TextField(
+                    value = nomortelepon,
+                    onValueChange = { nomortelepon = it },
+                    label = { Text("Nomor Telepon") },
+                    placeholder = { Text("isi Nomor Telepon anda")},
+                    modifier = Modifier.fillMaxWidth().padding(5.dp),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+                )
+
 
             }
         }
