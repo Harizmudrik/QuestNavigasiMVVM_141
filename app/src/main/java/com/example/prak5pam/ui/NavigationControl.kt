@@ -21,3 +21,39 @@ enum class Halaman{
     TAMPILDATA
 }
 
+@Composable
+fun NavigationControl (
+    modifier: Modifier = Modifier,
+    viewModel: SiswaViewModel = viewModel(),
+    navHost: NavHostController = rememberNavController()
+){
+    val uistate by viewModel.statusUI.collectAsState()
+    NavHost(navController = navHost, startDestination = Halaman.FORMULIR.name){
+        composable(
+            route = Halaman.FORMULIR.name
+        ){
+            val konteks = LocalContext.current
+            FormulirView(
+                listJK = JenisJk.map { id ->
+                    konteks.resources.getString(id)
+                },
+                onSubmitClicked = {
+                    viewModel.SaveDataSiswa(it)
+                    navHost.navigate(Halaman.TAMPILDATA.name)
+                },
+                modifier = modifier
+            )
+        }
+        composable(
+            route = Halaman.TAMPILDATA.name
+        ){
+            TampilDataView(
+                uiState = uistate,
+                onBackButton = {
+                    navHost.popBackStack()
+                },
+                modifier = modifier
+            )
+        }
+    }
+}
