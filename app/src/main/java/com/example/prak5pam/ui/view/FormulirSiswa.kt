@@ -33,7 +33,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun FormulirView(
     modifier: Modifier = Modifier,
-
+    listJK: List<String>,
+    onSubmitClicked: (MutableList<String>) -> Unit
 ){
 
 }
