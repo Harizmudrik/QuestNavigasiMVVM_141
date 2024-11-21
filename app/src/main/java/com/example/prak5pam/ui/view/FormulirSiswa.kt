@@ -58,7 +58,13 @@ fun FormulirView(
             modifier = Modifier.fillMaxWidth().padding(5.dp),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
-
+        TextField(
+            value = nama,
+            onValueChange = { nama = it },
+            label = { Text("Nama") },
+            placeholder = { Text("isi nama anda")},
+            modifier = Modifier.fillMaxWidth().padding(5.dp),
+        )
 
     }
 }
