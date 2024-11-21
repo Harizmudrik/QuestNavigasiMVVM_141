@@ -35,26 +35,27 @@ fun FormulirView(
     modifier: Modifier = Modifier,
     listJK: List<String>,
     onSubmitClicked: (MutableList<String>) -> Unit
-){
-    var nim by remember { mutableStateOf("")}
-    var nama by remember { mutableStateOf("")}
-    var email by remember { mutableStateOf("")}
-    var alamat by remember { mutableStateOf("")}
-    var nomortelepon by remember { mutableStateOf("")}
-    var gender by remember { mutableStateOf("")}
+) {
+    var nim by remember { mutableStateOf("") }
+    var nama by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var alamat by remember { mutableStateOf("") }
+    var nomortelepon by remember { mutableStateOf("") }
+    var gender by remember { mutableStateOf("") }
 
-    val listData : MutableList<String> = mutableListOf(nim, nama, gender, email, alamat, nomortelepon)
+    val listData: MutableList<String> =
+        mutableListOf(nim, nama, gender, email, alamat, nomortelepon)
 
 
-    Column (
+    Column(
         modifier = modifier.fillMaxSize().padding(30.dp),
         horizontalAlignment = Alignment.CenterHorizontally
-    ){
+    ) {
         TextField(
             value = nim,
             onValueChange = { nim = it },
             label = { Text("Nim") },
-            placeholder = { Text("isi nim anda")},
+            placeholder = { Text("isi nim anda") },
             modifier = Modifier.fillMaxWidth().padding(5.dp),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
@@ -62,20 +63,20 @@ fun FormulirView(
             value = nama,
             onValueChange = { nama = it },
             label = { Text("Nama") },
-            placeholder = { Text("isi nama anda")},
+            placeholder = { Text("isi nama anda") },
             modifier = Modifier.fillMaxWidth().padding(5.dp),
         )
-        Row (
+        Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Start
         ) {
             listJK.forEach { SelectedGender ->
-                Row (
+                Row(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     RadioButton(
                         selected = gender == SelectedGender,
-                        onClick = {gender = SelectedGender}
+                        onClick = { gender = SelectedGender }
                     )
                     Text(
                         text = SelectedGender
@@ -85,7 +86,7 @@ fun FormulirView(
                     value = email,
                     onValueChange = { email = it },
                     label = { Text("Email") },
-                    placeholder = { Text("isi Email anda")},
+                    placeholder = { Text("isi Email anda") },
                     modifier = Modifier.fillMaxWidth().padding(5.dp),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
                 )
@@ -93,7 +94,7 @@ fun FormulirView(
                     value = alamat,
                     onValueChange = { alamat = it },
                     label = { Text("Alamat") },
-                    placeholder = { Text("isi Alamat anda")},
+                    placeholder = { Text("isi Alamat anda") },
                     modifier = Modifier.fillMaxWidth().padding(5.dp),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
                 )
@@ -101,15 +102,23 @@ fun FormulirView(
                     value = nomortelepon,
                     onValueChange = { nomortelepon = it },
                     label = { Text("Nomor Telepon") },
-                    placeholder = { Text("isi Nomor Telepon anda")},
+                    placeholder = { Text("isi Nomor Telepon anda") },
                     modifier = Modifier.fillMaxWidth().padding(5.dp),
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
-
-
+                Button(
+                    onClick = {
+                        onSubmitClicked(listData)
+                    }
+                ) {
+                    Text(
+                        text = "Simpan",
+                    )
+                }
             }
         }
-
-
     }
 }
+
+
+
