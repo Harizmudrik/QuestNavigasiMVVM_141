@@ -81,6 +81,15 @@ fun FormulirView(
                         text = SelectedGender
                     )
                 }
+                TextField(
+                    value = email,
+                    onValueChange = { email = it },
+                    label = { Text("Email") },
+                    placeholder = { Text("isi Email anda")},
+                    modifier = Modifier.fillMaxWidth().padding(5.dp),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+                )
+
             }
         }
 
